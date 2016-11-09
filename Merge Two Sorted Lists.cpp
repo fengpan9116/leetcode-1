@@ -12,23 +12,23 @@ public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         if (!l1 && !l2) return NULL;
         if (!l1 || !l2) return l1? l1 : l2;
-        queue<ListNode*> shit;
+        queue<ListNode*> q;
         while(l1 || l2){
             if (l1 && (l2 && less(l1, l2) || !l2)){
-                shit.push(l1);
+                q.push(l1);
                 l1 = l1->next;
             }
             else{
-                shit.push(l2);
+                q.push(l2);
                 l2 = l2->next;
             }
         }
-        auto res = shit.front();
+        auto res = q.front();
         auto ret = res;
-        shit.pop();
-        while(!shit.empty()){
-            res->next = shit.front();
-            shit.pop();
+        q.pop();
+        while(!q.empty()){
+            res->next = q.front();
+            q.pop();
             res = res->next;
         }
         res->next = NULL;

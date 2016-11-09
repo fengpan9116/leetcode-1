@@ -10,7 +10,6 @@
 class Solution {
 public:
     int maxPoints(vector<Point>& points) {
-        // Fuck you leetcode!
         if (points.empty()) return 0;
         unordered_map<double, int> slope_to_count;
         int max_ = 1; double slope = INT_MAX;

@@ -1,14 +1,13 @@
 // PLAYIN' WITH FIRE (TM)
-// Welcome to the fucking circus
 class LRUCache{
 public:
     LRUCache(int capacity_) : capacity(capacity_) {
-        if (capacity_ <= 0) throw "fuck you"; // in your face
+        if (capacity_ <= 0) throw "...";
     }
     
     int get(int key) {
         if (!key_to_node.count(key)) return -1;
-        // Shift this fucker up
+        // Shift up
         auto node = key_to_node[key];
         if (node == last) return node->value;
         if (node->prev){
@@ -27,7 +26,7 @@ public:
     }
     
     void set(int key, int value) {
-        // Detect fucking collision
+        // Detect collision
         if (key_to_node.count(key)){
             key_to_node[key]->value = value;
             get(key); // Shift this sucker up
